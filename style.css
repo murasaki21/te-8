@@ -12,6 +12,7 @@ body {
 a:link {
   color: white;
   text-decoration: none;
+  transition-duration: 0.3s;
 }
 
  /*visited link*/
@@ -32,7 +33,6 @@ a:active {
   /*light blue*/
   color: #99B9FF;
   text-decoration: none;
-  transition-duration: 0.5s;
 }
 
 h1 {
