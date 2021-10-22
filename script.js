@@ -27,7 +27,8 @@ function createPiece() {
 	var group = new Group();
 	var myPolygon = new Path.RegularPolygon({
 		center: view.center,
-		sides: 6,
+    //changes polygon shape
+		sides: 10,
 		radius: 50,
 		fillColor: 'gray',
 		parent: group
