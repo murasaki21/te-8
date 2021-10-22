@@ -16,7 +16,8 @@ var text = new PointText({
 	point: view.center,
 	justification: 'center',
 	fillColor: 'white',
-	fontSize: 15,
+  textfont: 'Poppins',
+	fontSize: 20,
 	content: window.FileReader
 		? 'Drag & drop an image from your desktop'
 		: 'To drag & drop images, please use Webkit, Firefox, Chrome or IE 10'
@@ -24,7 +25,7 @@ var text = new PointText({
 
 function createPiece() {
 	var group = new Group();
-	var hexagon = new Path.RegularPolygon({
+	var myPolygon = new Path.RegularPolygon({
 		center: view.center,
 		sides: 6,
 		radius: 50,
@@ -35,13 +36,13 @@ function createPiece() {
 		var path = new Path({
 			closed: true,
 			parent: group,
-			fillColor: i == 0 ? 'white' : 'black'
+			fillColor: i == 0 ? '#FFD6FF' : '#99B9FF'
 		});
 		for (var j = 0; j < 3; j++) {
-			var index = (i * 2 + j) % hexagon.segments.length;
-			path.add(hexagon.segments[index].clone());
+			var index = (i * 2 + j) % myPolygon.segments.length;
+			path.add(myPolygon.segments[index].clone());
 		}
-		path.add(hexagon.bounds.center);
+		path.add(myPolygon.bounds.center);
 	}
 	// Remove the group from the document, so it is not drawn:
 	group.remove();
@@ -80,15 +81,15 @@ function handleImage(image) {
 function onFrame(event) {
 	if (!group)
 		return;
-	// Loop through the uncolored hexagons in the group and fill them
+	// Loop through the uncolored myPolygons in the group and fill them
 	// with the average color:
 	var length = Math.min(count + values.amount, group.children.length);
 	for (var i = count; i < length; i++) {
 		piece = group.children[i];
-		var hexagon = piece.children[0];
-		var color = raster.getAverageColor(hexagon);
+		var myPolygon = piece.children[0];
+		var color = raster.getAverageColor(myPolygon);
 		if (color) {
-			hexagon.fillColor = color;
+			myPolygon.fillColor = color;
 			var top = piece.children[1];
 			top.fillColor = color.clone();
 			top.fillColor.brightness *= 1.5;
