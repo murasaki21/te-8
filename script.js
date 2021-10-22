@@ -36,7 +36,7 @@ function createPiece() {
 		var path = new Path({
 			closed: true,
 			parent: group,
-			fillColor: i == 0 ? '#FFD6FF' : '#99B9FF'
+			fillColor: i == 0 ? '#FFD6FF' : '#A385FF'
 		});
 		for (var j = 0; j < 3; j++) {
 			var index = (i * 2 + j) % myPolygon.segments.length;
