@@ -19,7 +19,7 @@ var text = new PointText({
   textfont: 'Poppins',
 	fontSize: 20,
 	content: window.FileReader
-		? 'Drag & drop an image from your desktop'
+		? 'Drag & Drop an Image'
 		: 'To drag & drop images, please use Webkit, Firefox, Chrome or IE 10'
 });
 
